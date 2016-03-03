@@ -1,20 +1,21 @@
 
 # [ArangoDB](https://www.arangodb.com/) Interpreter for [Appache Zeppelin](https://zeppelin.incubator.apache.org/)
 
-What is Apache Zeppelin ? This project aims to provide a web environment for easing data discovery, analytics and visualization. This is the GUI you should have in your company for processing and collaborate on your (big) data. It provides interpreters to interact with databases (Cassandra, PostgreSQL and other JDBC compliant database, …), to define processing of your data with Spark or Flink, etc. 
+This article is a contribution from our community member [bbonnin](https://github.com/bbonnin) and will show you how to set up the zeppelin integration for ArangoDB step by step with many examples and hints. 
 
+What is Apache Zeppelin? This project aims to provide a web environment for easing data discovery, analytics and visualization. This is the GUI you should have in your company for processing and collaborate on your (big) data. It provides interpreters to interact with databases (Cassandra, PostgreSQL and other JDBC compliant database, …), to define processing of your data with Spark or Flink, etc. 
 
-The ArangoDB interpreter for Apache Zeppelin aims to provide a new interpreter to query an ArangoDB database. This interpreter only supports AQL ([ArangoDB Query Language](https://docs.arangodb.com/Aql/)).
+The ArangoDB interpreter for Apache Zeppelin aims to provide a new interpreter to query an ArangoDB. This interpreter only supports AQL ([ArangoDB Query Language](https://docs.arangodb.com/Aql/)).
 
-> **Important** : the graph part of ArangoDB is **PARTIALLY** supported at the moment. To test if you can use the data from the [Actors and Movies Database example](https://docs.arangodb.com/cookbook/GraphExampleActorsAndMovies.html). 
+> **Important** : the graph part of ArangoDB is **PARTIALLY** supported at the moment. If you want to test you can use the data from the [Actors and Movies Database example](https://docs.arangodb.com/cookbook/GraphExampleActorsAndMovies.html). 
 
 
 ## Flattened documents
 Basically, in Zeppelin, you have notebooks in which you can type commands, that are interpreted and the results are displayed. Depending on your result format, you can have access to charts for displaying your data.
 
-To have access to these charts, your output data format must be a table, but with ArangoDB, the result of a query can contain a list of JSON documents, so, as it is hierarchical (not flat as a row in a SQL table). 
+To have access to these charts, your output data format must be a table. But with ArangoDB the result of a query can contain a list of JSON documents which has a hierarchical structure (not flat as a row in a SQL table). 
 
-So, to ease the integration in Zeppelin, the ArangoDB interpreter will flatten the result of the queries.
+So, to ease the integration in Zeppelin, the ArangoDB interpreter will flatten the results of the queries.
 
 Suppose we have a JSON document:
 
